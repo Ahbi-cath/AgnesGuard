@@ -425,4 +425,58 @@
       return;
     }
     
-    medications
+    medications.forEach((med) => {
+      const item = document.createElement('div');
+      item.className = 'appointment-item priority-med';
+      item.innerHTML = `
+        <div style="font-size: 1rem; text-transform: uppercase; margin-bottom: 5px; color: #8e44ad; font-weight: bold;">💊 Daily Medicine Alarm</div>
+        Take: <strong>${med.name}</strong> at ⏰ ${med.time}
+      `;
+      list.appendChild(item);
+    });
+
+    appointments.forEach((app) => {
+      let priorityLabel = "🟢 Routine / Casual";
+      if (app.priority === 'urgent') priorityLabel = "🟡 Urgent / Important";
+      if (app.priority === 'emergency') priorityLabel = "🔴 Critical / Treatment";
+
+      const item = document.createElement('div');
+      item.className = `appointment-item priority-${app.priority}`;
+      item.innerHTML = `
+        <div style="font-size: 1rem; text-transform: uppercase; margin-bottom: 5px; opacity: 0.9; font-weight: bold;">${priorityLabel}</div>
+        ${app.type}: ${app.time.toLocaleDateString()} at ${app.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+      `;
+      list.appendChild(item);
+    });
+  }
+
+  setInterval(() => {
+    const now = new Date();
+    const currentHours = String(now.getHours()).padStart(2, '0');
+    const currentMinutes = String(now.getMinutes()).padStart(2, '0');
+    const currentTimeString = `${currentHours}:${currentMinutes}`;
+    
+    medications.forEach((med) => {
+      if (currentTimeString === med.time && now.getSeconds() === 0) {
+        if(alarmAudio) alarmAudio.play().catch(e => console.log("Waiting for user tap"));
+        alert(`⏰ MEDICINE ALARM FOR AGNES:\nTime to take your [ ${med.name} ]!`);
+      }
+    });
+
+    appointments.forEach((app) => {
+      if (
+        now.getFullYear() === app.time.getFullYear() &&
+        now.getMonth() === app.time.getMonth() &&
+        now.getDate() === app.time.getDate() &&
+        now.getHours() === app.time.getHours() &&
+        now.getMinutes() === app.time.getMinutes() &&
+        now.getSeconds() === 0 
+      ) {
+        if(alarmAudio) alarmAudio.play().catch(e => console.log("Waiting for user tap"));
+        alert(`⏰ AGNES GUARD REMINDER:\nYour scheduled event [ ${app.type} ] starts now!`);
+      }
+    });
+  }, 1000);
+</script>
+</body>
+</html>
