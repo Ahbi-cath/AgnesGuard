@@ -1,0 +1,203 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+  margin: 0;
+  padding: 30px 15px;
+  color: #1a252f; /* Darker text color for better readability contrast */
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3.5rem; /* Made bigger */
+  color: #1a252f;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+  margin: 8px 0 0 0;
+  font-size: 1.5rem; /* Made bigger */
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Single unified main card for a simpler layout interface */
+.main-card {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 35px 25px;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+}
+
+.app-section {
+  padding: 10px 0;
+}
+
+/* Bold Section Divider Lines */
+.section-divider {
+  border: 0;
+  height: 4px; /* Thick and visible line */
+  background-color: #bdc3c7;
+  margin: 40px 0;
+  border-radius: 2px;
+}
+
+/* Text Headers inside app sections */
+h2 {
+  font-size: 2rem; /* Extra large title size */
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.gas-section h2 { color: #c0392b; }
+.med-section h2 { color: #8e44ad; }
+
+.timer-display {
+  font-size: 6.5rem; /* Massive, impossible to miss */
+  font-weight: 900;
+  color: #e74c3c;
+  margin: 15px 0;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.btn-ctrl {
+  padding: 16px 5px; /* Huge touch targets */
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 3px solid #1a252f;
+  border-radius: 14px;
+  background: white;
+  cursor: pointer;
+  color: #1a252f;
+}
+
+.btn-reset-time {
+  background: #34495e;
+  color: white;
+  border-color: #34495e;
+}
+
+label {
+  display: block;
+  font-size: 1.6rem; /* Extra large form headers */
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #1a252f;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+/* Form input elements sizes bumped way up */
+input[type="datetime-local"], input[type="time"], select, .text-input {
+  width: 100%;
+  padding: 22px;
+  font-size: 1.6rem;
+  border: 3px solid #1a252f; /* Darker border line for visual separation */
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: #fcfcfc;
+  font-weight: bold;
+  color: #1a252f;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.radio-label {
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid #bdc3c7;
+}
+
+.radio-label input {
+  margin-right: 20px;
+  transform: scale(1.8); /* Enormous check buttons */
+}
+
+.color-routine { background-color: #e8f8f5; color: #117a65; border-color: #a3e4d7; }
+.color-urgent { background-color: #fef9e7; color: #b7950b; border-color: #f9e79f; }
+.color-emergency { background-color: #f9ebea; color: #922b21; border-color: #f5b7b1; }
+
+/* Large Action Submission Buttons */
+.btn {
+  width: 100%;
+  padding: 26px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  transition: transform 0.1s;
+}
+
+.btn:active { transform: scale(0.97); }
+.btn-danger { background-color: #e74c3c; color: white; }
+.btn-primary { background-color: #27ae60; color: white; }
+.btn-med { background-color: #9b59b6; color: white; }
+
+/* Dynamic List Schedule Elements */
+.appointment-item {
+  padding: 22px;
+  border-radius: 18px;
+  margin-top: 18px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.4;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.priority-routine { border-left: 14px solid #2ecc71; background-color: #f4fbf7; color: #117a65; }
+.priority-urgent { border-left: 14px solid #f1c40f; background-color: #fefdf5; color: #7d6608; }
+.priority-emergency { border-left: 14px solid #e74c3c; background-color: #fdf6f5; color: #78281f; }
+.priority-med { border-left: 14px solid #9b59b6; background-color: #faf5fc; color: #5b2c6f; }
+
+.no-apps {
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Legal text styling */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(0,0,0,0.1);
+  color: #2c3e50;
+}
+
+footer p { font-size: 1.1rem; font-weight: bold; margin: 5px 0; }
+.legal-text { font-size: 0.85rem !important; font-weight: normal !important; line-height: 1.5; color: #566573; max-width: 95%; margin: 12px auto 0 auto; }
