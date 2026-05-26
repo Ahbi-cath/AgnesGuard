@@ -1,0 +1,17 @@
+{
+  "short_name": "AgnesGuard",
+  "name": "Agnes Guard App",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#eef2f3",
+  "theme_color": "#1a252f",
+  "display": "standalone",
+  "orientation": "portrait"
+}
