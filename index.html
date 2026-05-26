@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,85 +9,99 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body><div id="app">
+<body>
+
+<div id="app">
   <header>
     <h1>Agnes Guard</h1>
     <p class="subtitle">Your Daily Companion</p>
   </header>
 
-  <section class="card gas-section">
-    <h2>🔥 Kitchen Safety Timer</h2>
-    <div class="timer-display" id="timerDisplay">15:00</div>
+  <main class="main-card">
     
-    <div class="timer-controls">
-      <button class="btn-ctrl" onclick="adjustTime(1)">+1 Min</button>
-      <button class="btn-ctrl" onclick="adjustTime(5)">+5 Min</button>
-      <button class="btn-ctrl" onclick="adjustTime(10)">+10 Min</button>
-      <button class="btn-ctrl btn-reset-time" onclick="resetTimerValue()">Reset</button>
-    </div>
-
-    <button class="btn btn-danger" id="gasBtn" onclick="toggleGasTimer()">START GAS TIMER</button>
-  </section>
-
-  <section class="card med-section">
-    <h2>💊 Medicine Alarm</h2>
-    <div class="form-group">
-      <label for="medName">Medicine Name:</label>
-      <input type="text" id="medName" placeholder="e.g., Heart Pill, Vitamins" class="text-input">
-    </div>
-    <div class="form-group">
-      <label for="medTime">What time should it ring?</label>
-      <input type="time" id="medTime">
-    </div>
-    <button class="btn btn-med" onclick="addMedicineAlarm()">Set Medicine Alarm</button>
-  </section>
-
-  <section class="card">
-    <h2>🗓️ Add Appointment / Trip</h2>
-    
-    <div class="form-group">
-      <label for="appType">Type of Event:</label>
-      <select id="appType" class="select-input">
-        <option value="🏥 Hospital Trip">🏥 Hospital Trip</option>
-        <option value="🚗 Family Outing / Trip">🚗 Family Outing / Trip</option>
-        <option value="📝 Other Reminder">📝 Other Reminder</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="appDate">Select Date & Time:</label>
-      <input type="datetime-local" id="appDate">
-    </div>
-    
-    <div class="form-group">
-      <label>Priority Level (Color Code):</label>
-      <div class="radio-group">
-        <label class="radio-label color-routine">
-          <input type="radio" name="priority" value="routine" checked> 🟢 Routine Checkup / Casual
-        </label>
-        <label class="radio-label color-urgent">
-          <input type="radio" name="priority" value="urgent"> 🟡 Urgent / Important
-        </label>
-        <label class="radio-label color-emergency">
-          <input type="radio" name="priority" value="emergency"> 🔴 Critical / Treatment
-        </label>
+    <section class="app-section gas-section">
+      <h2>🔥 Kitchen Safety Timer</h2>
+      <div class="timer-display" id="timerDisplay">15:00</div>
+      
+      <div class="timer-controls">
+        <button class="btn-ctrl" onclick="adjustTime(1)">+1 Min</button>
+        <button class="btn-ctrl" onclick="adjustTime(5)">+5 Min</button>
+        <button class="btn-ctrl" onclick="adjustTime(10)">+10 Min</button>
+        <button class="btn-ctrl btn-reset-time" onclick="resetTimerValue()">Reset</button>
       </div>
-    </div>
-    
-    <button class="btn btn-primary" onclick="addAppointment()">Save to Schedule</button>
-  </section>
 
-  <section class="card">
-    <h2>📅 Upcoming Schedule & Meds</h2>
-    <div id="appointmentList" class="appointment-list">
-      <p class="no-apps">No upcoming events or medications scheduled.</p>
-    </div>
-  </section>
+      <button class="btn btn-danger" id="gasBtn" onclick="toggleGasTimer()">START GAS TIMER</button>
+    </section>
 
-  <footer>
+    <hr class="section-divider">
+
+    <section class="app-section med-section">
+      <h2>💊 Medicine Alarm</h2>
+      <div class="form-group">
+        <label for="medName">Medicine Name:</label>
+        <input type="text" id="medName" placeholder="e.g., Heart Pill, Vitamins" class="text-input">
+      </div>
+      <div class="form-group">
+        <label for="medTime">What time should it ring?</label>
+        <input type="time" id="medTime">
+      </div>
+      <button class="btn btn-med" onclick="addMedicineAlarm()">Set Medicine Alarm</button>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="app-section">
+      <h2>🗓️ Add Appointment / Trip</h2>
+      
+      <div class="form-group">
+        <label for="appType">Type of Event:</label>
+        <select id="appType" class="select-input">
+          <option value="🏥 Hospital Trip">🏥 Hospital Trip</option>
+          <option value="🚗 Family Outing / Trip">🚗 Family Outing / Trip</option>
+          <option value="📝 Other Reminder">📝 Other Reminder</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="appDate">Select Date & Time:</label>
+        <input type="datetime-local" id="appDate">
+      </div>
+      
+      <div class="form-group">
+        <label>Priority Level (Color Code):</label>
+        <div class="radio-group">
+          <label class="radio-label color-routine">
+            <input type="radio" name="priority" value="routine" checked> 🟢 Routine Checkup / Casual
+          </label>
+          <label class="radio-label color-urgent">
+            <input type="radio" name="priority" value="urgent"> 🟡 Urgent / Important
+          </label>
+          <label class="radio-label color-emergency">
+            <input type="radio" name="priority" value="emergency"> 🔴 Critical / Treatment
+          </label>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" onclick="addAppointment()">Save to Schedule</button>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="app-section">
+      <h2>📅 Upcoming Schedule & Meds</h2>
+      <div id="appointmentList" class="appointment-list">
+        <p class="no-apps">No upcoming events or medications scheduled.</p>
+      </div>
+    </section>
+
+  </main> <footer>
     <p>Copyright © 2026 [Catherine N.C.L]. All Rights Reserved.</p>
     <p class="legal-text">No part of this application, including code, questions, and graphical assets, may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the author.</p>
   </footer>
 </div>
 
 <audio id="alarmSound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-84.wav" loop></audio>
+
+<script src="app.js" defer></script>
+</body>
+</html>
